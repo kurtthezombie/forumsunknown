@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <main class="text-white">
+    <main class="text-white mt-5">
         <section class="row">
             <div class="col-lg-6 align-content-center">
                 <h1 class="text-light big-text fw-bold lh-1">GAZE DEEP INTO THE <section class="text-secondary">ABYSS</section></h1>
