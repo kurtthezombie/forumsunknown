@@ -51,8 +51,8 @@
                         <li class="nav-item"><a class="nav-link text-light mx-2 brawler-regular" runat="server" href="~/">HOME</a></li>
                         <li class="nav-item"><a class="nav-link text-light mx-2 brawler-regular" runat="server" href="~/About">ABOUT</a></li>
                         <li class="nav-item"><a class="nav-link text-light mx-2 brawler-regular" runat="server" href="~/Contact">CONTACT</a></li>
-                        <li class="nav-item"><a class="btn btn-dark rounded-0 mx-3 brawler-regular" href="#">REGISTER</a></li>
-                        <li class="nav-item"><a class="btn btn-light rounded-0 text-dark brawler-regular" href="#">LOGIN</a></li>
+                        <li class="nav-item"><a class="btn btn-dark rounded-0 mx-3 brawler-regular" runat="server" href="~/Register">REGISTER</a></li>
+                        <li class="nav-item"><a class="btn btn-light rounded-0 text-dark brawler-regular" runat="server" href="~/Login">LOGIN</a></li>
                     </ul>
                 </div>
             </div>
