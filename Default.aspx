@@ -5,10 +5,10 @@
     <main class="text-white mt-5">
         <section class="row">
             <div class="col-lg-6 align-content-center">
-                <h1 class="text-light big-text fw-bold lh-1 pt-5">GAZE DEEP INTO THE <section class="text-secondary">ABYSS</section></h1>
+                <h1 class="text-light big-text fw-bold lh-1 pt-5">GAZE DEEP INTO THE <span class="text-secondary">ABYSS</span></h1>
             </div>
             <div class="col-lg-6 d-flex justify-content-end">
-                <img src="Images/alternate.jpg" class="img-fluid" alt="Alternate Image" width="400" height="auto">
+                <img src="Images/alternate.jpg" class="img-fluid" alt="Alternate Image" width="400">
             </div>
         </section>
         <section class="row" aria-labelledby="aspnetTitle">
