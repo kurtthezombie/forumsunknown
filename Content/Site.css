@@ -12,7 +12,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 100%;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -22,9 +22,11 @@ textarea {
     }
 }
 
+/* MY CSS */
 .big-text {
     font-size: 120px;
 }
+
 
 body {
     background-color: black;
