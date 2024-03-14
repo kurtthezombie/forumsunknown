@@ -6,6 +6,9 @@ using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
+using System.Web.UI.HtmlControls;
+
 
 namespace Testing
 {
@@ -13,7 +16,7 @@ namespace Testing
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
@@ -29,13 +32,18 @@ namespace Testing
 
                 if (userExists)
                 {
-                    if (checkCredentials(username,password))
+                    if (checkCredentials(username, password))
                     {
                         LblLoginMsg.Text = "Successfully logged in!";
+                        LblLoginMsg.ForeColor = Color.Green;
+                        Session["Username"] = username;
+                        Response.Redirect("~/");
                     }
                     else
                     {
                         LblLoginMsg.Text = "Incorrect username or password";
+                        LblLoginMsg.ForeColor = Color.Red;
+
                     }
                 }
                 else
