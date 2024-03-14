@@ -20,7 +20,6 @@
                 <div class="form-group text-light">
                     <asp:Button ID="btnPost" CssClass="btn btn-outline-light w-100" runat="server" Text="Post" OnClick="btnPost_Click"/>
                 </div>
-                
             </div>
         </div>
     </div>
