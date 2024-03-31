@@ -21,29 +21,16 @@ namespace Testing
 
                 DataTable dtPosts = GetForumPostsFromDatabase();
 
-                StringBuilder sb = new StringBuilder();
-                foreach (DataRow dr in dtPosts.Rows)
+                if (dtPosts.Rows.Count > 0)
                 {
-                    string title = dr["Title"].ToString();
-                    string content = dr["Content"].ToString();
-                    string createdAt = dr["CreatedAt"].ToString();
-                    string author = dr["Author"].ToString();
-
-                    sb.Append("<div class='container bg-transparent'>");
-                    sb.Append("  <div class='card p-5 bg-transparent col-lg-5 border-light mx-auto'>");
-                    sb.Append("     <div class='card-header border-light'>");
-                    sb.Append("         <div class='card-title display-5 fw-normal'>" + title + "</div>");
-                    sb.Append("         <div class='card-subtitle'>by " + author + "</div>");
-                    sb.Append("     </div>");
-                    sb.Append("    <div class='card-body'>" + content + "</div>");
-                    sb.Append("    <div class='card-footer'>Posted on: " + createdAt + "</div>");
-                    sb.Append("  </div>");
-                    sb.Append("</div>");
-                    sb.Append("<br />");
-                    sb.Append("<br />");
-                    sb.Append("<br />");
+                    ForumPostsRepeater.DataSource = dtPosts;
+                    ForumPostsRepeater.DataBind();
+                    EmptyPostMsg.Visible = false;
                 }
-                mainContent2.InnerHtml = sb.ToString();
+                else
+                {
+                    EmptyPostMsg.Visible = true;
+                }
             }
             else
             {
@@ -57,7 +44,8 @@ namespace Testing
 
             string query = @"SELECT FP.Title, FP.Content, FP.CreatedAt, FU.Username as Author
                             FROM FORUM_POSTS FP
-                            INNER JOIN FORUM_USERS FU ON FP.AuthorID = FU.UserID";
+                            INNER JOIN FORUM_USERS FU ON FP.AuthorID = FU.UserID
+                            ORDER BY CreatedAt DESC";
             DataTable dt = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(connectionString))

@@ -37,7 +37,16 @@ namespace Testing
                         LblLoginMsg.Text = "Successfully logged in!";
                         LblLoginMsg.ForeColor = Color.Green;
                         Session["Username"] = username;
-                        Response.Redirect("~/");
+                        
+                        if (username == "admin" && password == "admin")
+                        {
+                            Response.Redirect("AdminPage.aspx");
+                        } 
+                        else
+                        {
+                            Response.Redirect("~/");
+                        }
+                        
                     }
                     else
                     {
@@ -48,7 +57,8 @@ namespace Testing
                 }
                 else
                 {
-                    LblLoginMsg.Text = "Account does not exist";
+                    LblLoginMsg.Text = "Account does not exist!";
+                    LblLoginMsg.ForeColor = Color.Red;
                 }
             }
             

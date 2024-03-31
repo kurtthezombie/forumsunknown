@@ -57,7 +57,7 @@
                             <asp:Button ID="createPostBtn" runat="server" Text="+CREATE" CssClass="btn btn-outline-light" OnClick="BtnCreatePost_Click"/>
                         </li>
                         <li>
-                            <a id="welcomeLink" runat="server" href="~/Profile" class="btn btn-dark text-light mx-2 brawler-regular">
+                            <a id="welcomeLink" runat="server" href="~/Profile" class="btn bg-transparent text-light mx-2 brawler-regular">
                                 Welcome, <span id="welcomeUsername" runat="server" class="text-danger"></span>
                             </a>
                             <asp:Button ID="logoutBtn" runat="server" Text="LOGOUT" CssClass="btn btn-sm btn-outline-danger" OnClick="BtnLogout_Click" />

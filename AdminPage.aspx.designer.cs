@@ -11,43 +11,43 @@ namespace Testing
 {
 
 
-    public partial class _Default
+    public partial class AdminPage
     {
 
         /// <summary>
-        /// mainContent1 control.
+        /// BtnUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mainContent1;
+        protected global::System.Web.UI.WebControls.Button BtnUsers;
 
         /// <summary>
-        /// mainContent2 control.
+        /// BtnPosts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mainContent2;
+        protected global::System.Web.UI.WebControls.Button BtnPosts;
 
         /// <summary>
-        /// ForumPostsRepeater control.
+        /// UserRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ForumPostsRepeater;
+        protected global::System.Web.UI.WebControls.Repeater UserRepeater;
 
         /// <summary>
-        /// EmptyPostMsg control.
+        /// PostRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EmptyPostMsg;
+        protected global::System.Web.UI.WebControls.Repeater PostRepeater;
     }
 }

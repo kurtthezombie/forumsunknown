@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data;
 using System.Threading;
 using Antlr.Runtime.Tree;
+using Microsoft.AspNet.FriendlyUrls;
 
 namespace Testing
 {
@@ -24,25 +25,46 @@ namespace Testing
         protected void BtnRegister_Click(object sender, EventArgs e)
         {
             string username = TxtUsername.Text;
+            string email = TxtEmailAdd.Text;
+            string password = TxtPass.Text;
 
             if (Page.IsValid)
             {
                 LblRegisterMsg.Text = string.Empty;
-                //check if user exists
                 if (UsernameExists(username))
                 {
                     cvTxtUsername.IsValid = false;
                 }
                 else
                 {
-                    con.Open();
-                    string query = "INSERT INTO FORUM_USERS (UserName, EmailAddress, UserPassword)VALUES ('" + TxtUsername.Text + "', '" + TxtEmailAdd.Text + "', '" + TxtPass.Text + "')";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    string connectionString = "Data Source=LAPTOP-U9VDBFCE;Initial Catalog=ForumsUnknown;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
 
-                    //success message:
-                    LblRegisterMsg.Text = "Successfully registered";
+                    using (SqlConnection con = new SqlConnection(connectionString)) {
+                        string query = "INSERT INTO FORUM_USERS (UserName, EmailAddress, UserPassword)VALUES (@UserName, @EmailAddress, @UserPassword)";
+                        using (SqlCommand cmd = new SqlCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@UserName", username);
+                            cmd.Parameters.AddWithValue("@EmailAddress", email);
+                            cmd.Parameters.AddWithValue("@UserPassword", password);
+
+                            try
+                            {
+                                con.Open();
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+
+                                //success message:
+                                LblRegisterMsg.Text = "Successfully registered";
+                            }
+                            catch (Exception ex)
+                            {
+                                // Handle exceptions (e.g., database errors)
+                                LblRegisterMsg.Text = "Registration failed: " + ex.Message;
+                            }
+                        }
+                    }
+
+                    //Response.Redirect("Login.aspx");
                 }
             }
         }

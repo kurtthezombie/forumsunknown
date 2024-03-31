@@ -56,8 +56,26 @@
         </div>
         <!--MAIN CONTENT 2-->
         <div id="mainContent2" runat="server">
-
+            <asp:Repeater ID="ForumPostsRepeater" runat="server">
+                <ItemTemplate>
+                    <div class="container bg-transparent brawler-regular">
+                        <div class="card p-5 bg-white text-dark col-lg-5 border-light mx-auto">
+                            <div class='card-header border-dark border-5 bg-transparent'>
+                                <div class='card-title display-6 fw-normal'><%# Eval("Title") %></div>
+                                <div class='card-subtitle'>by <span class='fw-bold'><%# Eval("Author") %></span></div>
+                            </div>
+                            <div class='card-body'><%# Eval("Content") %></div>
+                            <div class='card-footer'>Posted on: <%# Eval("CreatedAt") %></div>
+                        </div>
+                    </div>
+                    <br />
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
+        <div class='text-light display-6' runat="server" id="EmptyPostMsg">
+            Nothing here yet, be the first to <a href='CreatePost.aspx' class='text-danger text-decoration-none'>share</a>!
+        </div>
+
     </main>
 
 </asp:Content>

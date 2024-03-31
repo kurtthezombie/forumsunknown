@@ -32,7 +32,7 @@ namespace Testing
             //query
             string query = "INSERT INTO FORUM_POSTS (Title, Content, CreatedAt, AuthorID) " +
                 "VALUES (@Title, @Content, GETDATE(), (SELECT UserID FROM FORUM_USERS WHERE UserName = @Username))";
-
+            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -47,6 +47,8 @@ namespace Testing
                         command.ExecuteNonQuery();
                         LblCreatePostMsg.Text = "Post created.";
                         LblCreatePostMsg.ForeColor = Color.Green;
+                        TxtTitle.Text = "";
+                        TxtContent.Text = "";
                     }
                     catch (SqlException ex)
                     {
